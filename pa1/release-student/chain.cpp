@@ -53,11 +53,11 @@ void Chain::insertBack(const Block &ndata)
 
 void Chain::swap(int pos1, int pos2) {
     // Make sure pos1 is less than pos2
-    if (pos1 > pos2) {
-        int temp = pos1;
-        pos1 = pos2;
-        pos2 = temp;
-    }
+    // if (pos1 > pos2) {
+    //     int temp = pos1;
+    //     pos1 = pos2;
+    //     pos2 = temp;
+    // }
     // Find node1 and node2
     Node* node1 = walk(head_, pos1 - 1);
     Node* node2 = walk(head_, pos2 - 1);
@@ -79,7 +79,7 @@ void Chain::swap(int pos1, int pos2) {
         head_ = node2;
     }
     // Adjacent case
-    else if (node1Next == node2 )
+    else if (node1Next == node2)
     {
         // Left side pointers
         node1Prev->next = node2;
@@ -98,19 +98,19 @@ void Chain::swap(int pos1, int pos2) {
             tail_ = node1;
         }
     }
-    // node1 is head and node2 is tail 
-    else if (node1 == head_ && node2 == tail_)
-    {
-        node1->next = node2;
-        node1->prev = node2Prev;
-        node1Next->prev = node2;
+    // // node1 is head and node2 is tail 
+    // else if (node1 == head_ && node2 == tail_)
+    // {
+    //     node1->next = node2;
+    //     node1->prev = node2Prev;
+    //     node1Next->prev = node2;
 
-        node2Prev->next = node1;
-        node2->next = node1Next;
-        node2->prev = node1;
-        head_ = node2;
-        tail_ = node1;
-    }
+    //     node2Prev->next = node1;
+    //     node2->next = node1Next;
+    //     node2->prev = node1;
+    //     head_ = node2;
+    //     tail_ = node1;
+    // }
     // node1 is head
     else if (node1 == head_)
     {
